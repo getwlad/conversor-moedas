@@ -2,11 +2,12 @@
 
 ## :world_map: Índice
 
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Instalação](#instalação)
-- [Tecnologias e Recursos](#tecnologias-e-recursos-utilizados)
-- [Sprints](#sprints)
-- [Pessoas Desenvolvedoras do Projeto](#autores)
+- [Sobre o Projeto](#information_source-sobre-o-projeto)
+- [Funcionalidades](#hammer-funcionalidades-do-projeto)
+- [Instalação](#hammer_and_wrench-instalação)
+- [Sprints](#bulb-sprints)
+- [Tecnologias e Recursos](#open_book-tecnologias-e-recursos-utilizados)
+- [Pessoas Desenvolvedoras do Projeto](#smile-autores)
 ## :information_source: Sobre o projeto
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)<br>
 Este projeto é a resolução de um desafio proposto na formação Java oferecida pela Oracle em parceria com a alura, o <br>
