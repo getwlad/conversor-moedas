@@ -138,10 +138,29 @@ public class Menu extends javax.swing.JFrame {
            //Instancia o conversor de moedas e obtém a moeda a conversão
            ConversaoMoedas convert = new ConversaoMoedas();
            double result = convert.converter(number, moeda.getBid());
-           
+           //Exibe o Resultado
            String mensagem = String.format("Você tem $ %.2f %s", result, moeda.getCodeIn());
            JOptionPane.showMessageDialog(rootPane, mensagem);
-           this.setVisible(true);
+           //Pergunta o usuário se deseja continuar no programa
+            int selectedOption = showCustomConfirmDialog();;
+           // Verificar a opção selecionada
+        switch (selectedOption) {
+            case JOptionPane.YES_OPTION -> this.setVisible(true);
+            case JOptionPane.NO_OPTION -> {
+                JOptionPane.showMessageDialog(rootPane, "Programa finalizado");
+                this.dispose();
+               }
+            case JOptionPane.CANCEL_OPTION -> {
+                JOptionPane.showMessageDialog(rootPane, "Programa concluído");
+                this.dispose();
+               }
+            default -> {
+                    JOptionPane.showMessageDialog(rootPane, "Nenhuma opção selecionada.");
+                    this.setVisible(true);
+               }
+        }
+        
+          
 
        }
        else {
@@ -149,6 +168,20 @@ public class Menu extends javax.swing.JFrame {
        }
       
     }//GEN-LAST:event_btnOkActionPerformed
+
+     public static int showCustomConfirmDialog() {
+        Object[] options = {"Yes", "No", "Cancel"};
+        return JOptionPane.showOptionDialog(
+                null,
+                "Você quer continuar?",
+                "Confirmação",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]
+        );
+    }
 
     private void cmbSeletorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSeletorActionPerformed
      
