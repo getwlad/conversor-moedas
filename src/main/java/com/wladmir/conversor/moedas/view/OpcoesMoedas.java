@@ -4,27 +4,32 @@
  */
 package com.wladmir.conversor.moedas.view;
 
-import java.awt.Color;
-import javax.swing.JOptionPane;
-import javax.swing.border.LineBorder;
+import com.wladmir.conversor.moedas.model.Moeda;
+import javax.swing.DefaultComboBoxModel;
+import util.Api;
 
 /**
  *
  * @author Wladmir Rodrigues
  */
-public class InputValor extends javax.swing.JDialog {
-    private int number;
+public class OpcoesMoedas extends javax.swing.JDialog {
+    private int selectedCoin;
     /**
-     * Creates new form InputValorr
+     * Creates new form OpcoesMoedas
      */
-    
-    public InputValor(java.awt.Frame parent, boolean modal) {
+    public OpcoesMoedas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        DefaultComboBoxModel comboBoxModel  = new DefaultComboBoxModel();
+        for (Moeda moeda : Api.moedas) {
+             comboBoxModel.addElement(moeda.getCode());
+       }
+        cmbSelectCoin.setModel(comboBoxModel);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+      
     }
-
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,19 +41,20 @@ public class InputValor extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        inputValor = new javax.swing.JTextField();
+        cmbSelectCoin = new javax.swing.JComboBox<>();
+        lblChoose = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setText("Insira um valor:");
+        cmbSelectCoin.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        cmbSelectCoin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "De Reais a Doláres", "De Reais a Euros", "De Reais a Libras", "De Reais a Yenes", "De Reais a Won Coreano", "De Doláres a Reais", "De Euros a Reais", "De Libras a Reais", "De Yenes a Reais", "De Won Cooreano a Reais" }));
+        cmbSelectCoin.setToolTipText("");
 
-        inputValor.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        lblChoose.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblChoose.setText("Escolha a moeda na qual você deseja girar seu dinheiro:");
 
-        btnOk.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnOk.setText("Ok");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +62,6 @@ public class InputValor extends javax.swing.JDialog {
             }
         });
 
-        btnCancel.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnCancel.setText("Cancelar");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,34 +73,34 @@ public class InputValor extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(72, 72, 72))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(btnOk)
+                .addGap(26, 26, 26)
+                .addComponent(btnCancel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnOk)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(inputValor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(lblChoose)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(cmbSelectCoin, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2)
-                .addGap(12, 12, 12)
-                .addComponent(inputValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(lblChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbSelectCoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOk)
                     .addComponent(btnCancel))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,38 +108,30 @@ public class InputValor extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-        try {
-            this.number  = Integer.parseInt(inputValor.getText());
-            this.dispose();
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Digite apenas números.");
-            inputValor.setBorder(new LineBorder(Color.red,1));
-        }
+         this.selectedCoin = cmbSelectCoin.getSelectedIndex();
+         this.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
-    public int getNumber() {
-             return this.number;
-}
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
-
+    public int getSelectedConvertion(){
+           return this.selectedCoin;
+    }
     /**
      * @param args the command line arguments
      */
@@ -152,21 +149,20 @@ public class InputValor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                InputValor dialog = new InputValor(new javax.swing.JFrame(), true);
+                OpcoesMoedas dialog = new OpcoesMoedas(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -181,8 +177,8 @@ public class InputValor extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnOk;
-    private javax.swing.JTextField inputValor;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JComboBox<String> cmbSelectCoin;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblChoose;
     // End of variables declaration//GEN-END:variables
 }

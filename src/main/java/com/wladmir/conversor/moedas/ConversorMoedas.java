@@ -8,6 +8,7 @@ package com.wladmir.conversor.moedas;
 import com.wladmir.conversor.moedas.view.Menu;
 
 import javax.swing.*;
+import util.Api;
 
 /**
  *
@@ -16,6 +17,7 @@ import javax.swing.*;
 public class ConversorMoedas {
 
     public static void main(String[] args) {
+        Api api = new Api();
         Menu menu = new Menu();
        
         

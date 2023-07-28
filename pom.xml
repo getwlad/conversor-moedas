@@ -10,4 +10,12 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.wladmir.conversor.moedas.ConversorMoedas</exec.mainClass>
     </properties>
+    <dependencies>
+    <!-- Outras dependências do projeto -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.12.5</version> <!-- Verifique a versão mais recente no site do Jackson -->
+    </dependency>
+</dependencies>
 </project>

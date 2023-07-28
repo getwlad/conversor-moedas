@@ -4,7 +4,9 @@
  */
 package com.wladmir.conversor.moedas.view;
 
+
 import javax.swing.JOptionPane;
+import util.Api;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+      System.out.println(Api.moedas); 
     }
 
     /**
@@ -122,6 +125,9 @@ public class Menu extends javax.swing.JFrame {
        if(selected == 0) {
            this.setVisible(false);
            InputValor input = new InputValor(this, true);
+           int number = input.getNumber();
+           OpcoesMoedas opcoes = new OpcoesMoedas(this, true);
+           int selectedCoin = opcoes.getSelectedConvertion();
            this.setVisible(true);
 
        }
