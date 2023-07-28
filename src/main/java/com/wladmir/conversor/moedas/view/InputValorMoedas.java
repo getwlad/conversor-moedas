@@ -12,13 +12,13 @@ import javax.swing.border.LineBorder;
  *
  * @author Wladmir Rodrigues
  */
-public class InputValor extends javax.swing.JDialog {
-    private int number;
+public class InputValorMoedas extends javax.swing.JDialog {
+    private double number;
     /**
      * Creates new form InputValorr
      */
     
-    public InputValor(java.awt.Frame parent, boolean modal) {
+    public InputValorMoedas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -120,14 +120,14 @@ public class InputValor extends javax.swing.JDialog {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         try {
-            this.number  = Integer.parseInt(inputValor.getText());
+            this.number  = Double.parseDouble(inputValor.getText());
             this.dispose();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Digite apenas números.");
             inputValor.setBorder(new LineBorder(Color.red,1));
         }
     }//GEN-LAST:event_btnOkActionPerformed
-    public int getNumber() {
+    public double getNumber() {
              return this.number;
 }
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -152,21 +152,23 @@ public class InputValor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputValorMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputValorMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputValorMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InputValor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputValorMoedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                InputValor dialog = new InputValor(new javax.swing.JFrame(), true);
+                InputValorMoedas dialog = new InputValorMoedas(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

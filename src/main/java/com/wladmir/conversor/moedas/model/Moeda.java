@@ -11,17 +11,18 @@ package com.wladmir.conversor.moedas.model;
 public class Moeda {
     private String name;
     private String code;
-    private double bid;
+    private String codeIn;
 
-    public Moeda(String name, String code, double bid) {
+     public Moeda( String name, String code, String codeIn, double bid) {
         this.name = name;
         this.code = code;
+        this.codeIn = codeIn;
         this.bid = bid;
     }
-
+    
     @Override
     public String toString() {
-        return "Moeda{" + "name=" + name + ", code=" + code + ", bid=" + bid + '}';
+        return "Moeda{" + "name=" + name + ", code=" + code + ", codeIn=" + codeIn + ", bid=" + bid + '}';
     }
 
     public String getName() {
@@ -40,6 +41,14 @@ public class Moeda {
         this.code = code;
     }
 
+    public String getCodeIn() {
+        return codeIn;
+    }
+
+    public void setCodeIn(String codeIn) {
+        this.codeIn = codeIn;
+    }
+
     public double getBid() {
         return bid;
     }
@@ -47,4 +56,8 @@ public class Moeda {
     public void setBid(double bid) {
         this.bid = bid;
     }
+    private double bid;
+
+   
+    
 }

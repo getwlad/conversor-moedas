@@ -55,9 +55,9 @@ public class Api {
              Iterator<Map.Entry<String, JsonNode>> fields = jsonNode.fields();
                 while (fields.hasNext()) {
                     Map.Entry<String, JsonNode> entry = fields.next();
-                    String code = entry.getKey();
+//                    String code = entry.getKey;
                     JsonNode node = entry.getValue();
-                    Moeda objeto = new Moeda(code, node.get("name").asText(), node.get("bid").asDouble());
+                    Moeda objeto = new Moeda( node.get("name").asText(), node.get("code").asText(), node.get("codein").asText(), node.get("bid").asDouble());
                     moedas.add(objeto);
                 }
                 

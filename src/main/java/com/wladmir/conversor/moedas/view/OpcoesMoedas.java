@@ -22,7 +22,7 @@ public class OpcoesMoedas extends javax.swing.JDialog {
         initComponents();
         DefaultComboBoxModel comboBoxModel  = new DefaultComboBoxModel();
         for (Moeda moeda : Api.moedas) {
-             comboBoxModel.addElement(moeda.getCode());
+             comboBoxModel.addElement(moeda.getName());
        }
         cmbSelectCoin.setModel(comboBoxModel);
         this.setLocationRelativeTo(null);

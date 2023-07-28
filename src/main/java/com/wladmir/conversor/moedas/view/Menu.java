@@ -5,8 +5,10 @@
 package com.wladmir.conversor.moedas.view;
 
 
+import com.wladmir.conversor.moedas.model.Moeda;
 import javax.swing.JOptionPane;
 import util.Api;
+import util.ConversaoMoedas;
 
 /**
  *
@@ -124,10 +126,21 @@ public class Menu extends javax.swing.JFrame {
        int selected = this.cmbSeletor.getSelectedIndex();
        if(selected == 0) {
            this.setVisible(false);
-           InputValor input = new InputValor(this, true);
-           int number = input.getNumber();
+           //Instancia o input pra receber o valor que o usuário deseja
+           InputValorMoedas input = new InputValorMoedas(this, true);
+           //Obtém o valor
+           double number = input.getNumber();
+           //Instancia as opções de conversão pro usuário
            OpcoesMoedas opcoes = new OpcoesMoedas(this, true);
+           //Obtém a moeda selecionada
            int selectedCoin = opcoes.getSelectedConvertion();
+            Moeda moeda = Api.moedas.get(selectedCoin);
+           //Instancia o conversor de moedas e obtém a moeda a conversão
+           ConversaoMoedas convert = new ConversaoMoedas();
+           double result = convert.converter(number, moeda.getBid());
+           
+           String mensagem = String.format("Você tem $ %.2f %s", result, moeda.getCodeIn());
+           JOptionPane.showMessageDialog(rootPane, mensagem);
            this.setVisible(true);
 
        }
