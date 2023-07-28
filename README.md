@@ -11,7 +11,7 @@
 ## :information_source: Sobre o projeto
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)<br>
 Este projeto é a resolução de um desafio proposto na formação Java oferecida pela Oracle em parceria com a alura, o <br>
-objetivo é fazer uma aplicação que possa converter moedas nações.
+objetivo é fazer uma aplicação que possa converter moedas de diferentes nações.
 
 ## :hammer: Funcionalidades do projeto
 
